@@ -1,0 +1,9 @@
+{
+    "name": "Permissions",
+    "title": "asd",
+    "description": "asd",
+    "keywords": "asd",
+    "service": "\\CatchAdmin\\Permissions\\PermissionsServiceProvider",
+    "version": "1.0.0",
+    "enable": true
+}
