@@ -12,26 +12,20 @@
 namespace CatchAdmin\Permissions\Http\Controllers;
 
 use Catcher\Base\CatchController;
-use CatchAdmin\Permissions\Build\User;
-use Catcher\Base\CatchResponse;
+use CatchAdmin\Permissions\Build\Permission;
 
-class UsersController extends CatchController
+class PermissionController extends CatchController
 {
-    public function __construct(User $build)
-    {
-        $this->builder = $build;
-
-        parent::__construct();
-    }
 
     /**
-     * 导出
      *
-     * @time 2021年09月18日
-     * @return array
+     * @time 2021/08/26 05:42
+     * @param Permission $builder
+     * @return mixed
      */
-    public function export()
+    public function __construct(Permission $builder)
     {
-        return CatchResponse::success($this->builder->export());
+        $this->builder = $builder;
+        parent::__construct();
     }
 }

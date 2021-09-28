@@ -17,7 +17,7 @@ use CatchAdmin\Permissions\Build\Role;
 use Catcher\Base\CatchResponse;
 use CatchAdmin\Permissions\Models\Permissions;
 
-class RolesController extends CatchController
+class RoleController extends CatchController
 {
     /**
      *

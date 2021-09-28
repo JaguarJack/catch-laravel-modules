@@ -35,20 +35,20 @@ class Permissions
         /* @var Users $user */
         $user = Auth::user();
 
-        if ($request->method() == RequestAlias::METHOD_GET || $user->isSuperAdmin()) {
-            return $next($request);
-        }
-
         [$module, $mark] = $this->parseActionName($request->route()->getActionName());
 
         $permissionId = PermissionsModel::query()->where('module', $module)->where('permission_mark', $mark)->value('id');
 
+        // request store current permission id
+        $request['permission_id'] = $permissionId;
+
+        if ($request->method() == RequestAlias::METHOD_GET || $user->isSuperAdmin()) {
+            return $next($request);
+        }
+
         if (! $permissionId || ! $user->hasPermission($permissionId)) {
             throw new PermissionForbiddenException();
         }
-
-        // request store current permission id
-        $request['permission_id'] = $permissionId;
 
         return $next($request);
     }

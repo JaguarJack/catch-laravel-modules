@@ -12,20 +12,26 @@
 namespace CatchAdmin\Permissions\Http\Controllers;
 
 use Catcher\Base\CatchController;
-use CatchAdmin\Permissions\Build\Job;
+use CatchAdmin\Permissions\Build\User;
+use Catcher\Base\CatchResponse;
 
-class JobsController extends CatchController
+class UserController extends CatchController
 {
+    public function __construct(User $build)
+    {
+        $this->builder = $build;
+
+        parent::__construct();
+    }
 
     /**
+     * 导出
      *
-     * @time 2021/08/19 08:08
-     * @param Job $builder
-     * @return void
+     * @time 2021年09月18日
+     * @return array
      */
-    public function __construct(Job $builder)
+    public function export()
     {
-        $this->builder = $builder;
-        parent::__construct();
+        return CatchResponse::success($this->builder->export());
     }
 }

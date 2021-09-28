@@ -12,18 +12,18 @@
 namespace CatchAdmin\Permissions\Http\Controllers;
 
 use Catcher\Base\CatchController;
-use CatchAdmin\Permissions\Build\Permission;
+use CatchAdmin\Permissions\Build\Job;
 
-class PermissionsController extends CatchController
+class JobController extends CatchController
 {
 
     /**
      *
-     * @time 2021/08/26 05:42
-     * @param Permission $builder
-     * @return mixed
+     * @time 2021/08/19 08:08
+     * @param Job $builder
+     * @return void
      */
-    public function __construct(Permission $builder)
+    public function __construct(Job $builder)
     {
         $this->builder = $builder;
         parent::__construct();
